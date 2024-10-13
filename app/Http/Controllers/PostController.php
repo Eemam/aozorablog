@@ -13,7 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy("id","desc")->with(['user'])->get();
+        $posts = Post::orderBy("id","desc")->with(['user', 'comments'])->get();
 
         return view('home', 
         [

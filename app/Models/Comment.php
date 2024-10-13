@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Post;
 use App\Models\User;
-use App\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Post extends Model
+class Comment extends Model
 {
-    /** @use HasFactory<\Database\Factories\PostFactory> */
+    /** @use HasFactory<\Database\Factories\CommentFactory> */
     use HasFactory;
 
     protected $guarded = ['id'];
@@ -19,8 +19,8 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function comments()
+    public function post()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Post::class);
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Post;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -33,5 +34,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory(100)->recycle(User::factory(4)->create())->create();
+        Comment::factory(100)->create();
     }
 }
