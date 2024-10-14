@@ -6,20 +6,17 @@
     </x-slot> --}}
 
     @if (session('reject'))
-        <x-toast id="toast-warning"
-            color="text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200"
-            icon="Warning">{{ session('reject') }}</x-toast>
+        <x-alert type="red" message="{{ session('reject') }}" title="Error" />
     @endif
 
     @if (session('success'))
-        <x-toast id="toast-success" color="text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200"
-            icon="Check">{{ session('success') }}</x-toast>
+        <x-alert type="green" message="{{ session('success') }}" title="Success" />
     @endif
 
     @if (session('logout'))
-        <x-toast id="toast-success" color="text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200"
-            icon="Check">{{ session('logout') }}</x-toast>
+        <x-alert type="green" message="{{ session('logout') }}" title="Logout Success" />
     @endif
+
 
     <x-create-post></x-create-post>
 
